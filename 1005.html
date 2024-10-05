@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>情報資源組織論</title>
+		<meta charset="UTF-8">
+	    <meta name="robots" content="noindex" />
+
+		<style>
+		.pic-background {
+		    background-image: var(--pic-image-data, none);
+		    background-size: cover;
+		    background-position: center;
+		}
+
+		.pic-container {
+		    position: relative;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    flex-direction: column;
+		    width: 100vw;
+		    height: 100vh;
+		    padding: 0 6rem;
+		    box-sizing: border-box;
+		    background-color: #fefefe;
+		    z-index: 0;
+		}
+		
+		
+		
+		.box {
+		    position: relative;
+		    padding: 0.5rem;
+		    background-color: #c8e3cc;
+		    box-shadow: 0 0 0 0.5rem #c8e3cc;
+		    border-left: 10px dotted #6b9973;
+		}
+		
+		.box::before {
+		    position: absolute;
+		    top: 2.5rem;
+		    left: 0.5rem;
+		    width: calc(100% - 1rem);
+		    height: calc(100% - 2rem);
+		    background-image: repeating-linear-gradient(#6b9973 0 1px, transparent 1px 37px);
+		    content: '';
+		}
+		
+		.box::after {
+		    position: absolute;
+		    bottom: 0.5rem;
+		    right: 0;
+		    width: 50%;
+		    height: 20%;
+		}
+		
+		
+		.box p {
+		    color: #333;
+		    line-height: 2.3;
+		}
+		
+		h1 {
+		  color: #1f5866;
+		  text-shadow: 0 0 5px white;
+		  padding: 0.3em 0.5em;
+		  background: -webkit-repeating-linear-gradient(-45deg, #ccffdc, #ccffdc 3px,#e6ffee 3px, #e6ffee 7px);
+		  background: repeating-linear-gradient(-45deg, #ccffdc, #ccffdc 3px,#e6ffee 3px, #e6ffee 7px);
+		}
+		
+		.box25{
+		    position: relative;
+		    background: #ccffe6;
+		    box-shadow: 0px 0px 0px 5px #ccffe6;
+		    border: dashed 2px white;
+		    padding: 0.2em 0.5em;
+		    color: #454545;
+		}
+		.box25:after{
+		    position: absolute;
+		    content: '';
+		    right: -7px;
+		    top: -7px;
+		    border-width: 0 15px 15px 0;
+		    border-style: solid;
+		    border-color: #5c997b #fff #5c997b;
+		    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+		}
+		.box25 p {
+		    margin: 0; 
+		    padding: 0;
+		}
+		
+		</style>
+	</head>
+
+
+	<body style="background-color:#6b9973;">
+			<h1>図書館情報組織論 第3回</h1>
+		
+	<div class="box">
+		日本語日本文学科　橘内里沙
+	    <p>①カード目録の利点は何でしょうか。
+	    <br>　カード目録で組織化することで、図書館内を歩き回らなくとも蔵書を確認することができる。請求記号の分類や書名、著者名から探せるため本を探すのが簡単になる。
+	    <br>　OPACで探すとキーワードやBHSでの検索など、的確に必要な情報を探すという点では優れているが、アナログのカードでは書架を見るのに近い感覚で探せるのではないだろうか。同じ本の探し方でもそれぞれにメリットデメリットがあると考える。</p>
+	</div>
+	
+	
