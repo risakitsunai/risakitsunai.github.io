@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Slot Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-wrapper">
+  <!-- 左カラム：絵柄ステータス -->
+  <aside class="col-left">
+    <section class="symbol-table-container">
+      <h2>絵柄ステータス</h2>
+      <table class="symbol-table">
+        <thead>
+          <tr>
+            <th>絵柄</th>
+            <th>実質配当</th>
+            <th>出現率</th>
+          </tr>
+        </thead>
+        <tbody id="symbol-table-body"></tbody>
+      </table>
+    </section>
+  </aside>
+
+  <!-- 中央カラム：メインゲーム要素 -->
+  <main class="col-center">
+    <h1>Simple Slot</h1>
+    
+    <section class="status">
+      <p>ステージ：<span id="stage">1</span></p>
+      <p>コイン：<span id="coins">0</span></p>
+      <p>残りスピン：<span id="spins">25</span></p>
+      <p>チケット：<span id="tickets">0</span></p>
+    </section>
+
+    <section class="target">
+      目標コイン：<span id="target">35</span>
+    </section>
+
+    <section class="slot">
+      <div class="reel" id="reel1">🍒</div>
+      <div class="reel" id="reel2">🍒</div>
+      <div class="reel" id="reel3">🍒</div>
+    </section>
+
+    <button id="spin-button">SPIN</button>
+    <button id="retry-button" style="display: none;">強化を引き継いでリトライ</button>
+    <p id="message">SPINを押してください。</p>
+
+    <section class="shop">
+      <h2>強化ショップ（ランダム3種）</h2>
+      <div id="shop-options"></div>
+    </section>
+
+    <section class="save-system">
+      <h2>セーブ / ロード</h2>
+      <div class="save-slots">
+        <div class="save-slot">
+          <p><strong>スロット 1</strong></p>
+          <p id="slot-info-1">データなし</p>
+          <button onclick="saveData(1)">保存</button>
+          <button onclick="loadData(1)">再開</button>
+        </div>
+        <div class="save-slot">
+          <p><strong>スロット 2</strong></p>
+          <p id="slot-info-2">データなし</p>
+          <button onclick="saveData(2)">保存</button>
+          <button onclick="loadData(2)">再開</button>
+        </div>
+        <div class="save-slot">
+          <p><strong>スロット 3</strong></p>
+          <p id="slot-info-3">データなし</p>
+          <button onclick="saveData(3)">保存</button>
+          <button onclick="loadData(3)">再開</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<!-- 右カラム：ステータス＆強化履歴（折りたたみ対応） -->
+  <aside class="col-right">
+    <!-- 現在のステータス一括表示（デフォルト表示） -->
+    <section class="status-summary-container">
+      <h2>現在のステータス</h2>
+      <div id="status-summary-list" class="status-summary">
+        <!-- JSで一括表示 -->
+      </div>
+    </section>
+
+    <!-- 取得済み強化の履歴（折りたたみ） -->
+    <section class="upgrades-history-container">
+      <details>
+        <summary><strong>取得済み強化の履歴</strong></summary>
+        <ul id="upgrades-history-list">
+          <!-- JSで集計して動的追加 -->
+        </ul>
+      </details>
+    </section>
+
+    <!-- 設定エリア -->
+    <section class="settings-container">
+      <h2>設定</h2>
+      <label class="setting-item">
+        <input type="checkbox" id="animation-toggle" checked>
+        回転演出を再生する
+      </label>
+    </section>
+  </aside>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

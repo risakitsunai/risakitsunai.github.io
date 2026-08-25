@@ -1,0 +1,283 @@
+body {
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 20px;
+}
+
+/* 全体を横並びにする3カラムコンテナ */
+.game-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 各カラム共通ブロック */
+.col-left, .col-center, .col-right {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* カラムごとの幅調整 */
+.col-left {
+  width: 280px;
+}
+
+.col-center {
+  width: 440px;
+  text-align: center;
+}
+
+.col-right {
+  width: 280px;
+}
+
+h1 { 
+  margin-top: 0; 
+}
+
+.status {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.status p { 
+  margin: 5px; 
+  font-size: 15px; 
+}
+
+.target {
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #d9534f;
+}
+
+/* テーブルスタイル */
+.symbol-table-container h2, .upgrades-history-container h2 {
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.symbol-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.symbol-table th, .symbol-table td {
+  border: 1px solid #ddd;
+  padding: 6px 4px;
+  text-align: center;
+}
+
+.symbol-table th { 
+  background-color: #eee; 
+}
+
+/* スロット */
+.slot {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.reel {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  background-color: #fafafa;
+  border-radius: 6px;
+}
+
+.reel.spinning {
+  animation: blur 0.1s infinite alternate;
+  background-color: #fff8dc;
+}
+
+@keyframes blur {
+  0% { transform: translateY(-2px); opacity: 0.8; }
+  100% { transform: translateY(2px); opacity: 1; }
+}
+
+#spin-button, #retry-button {
+  font-size: 20px;
+  padding: 10px 40px;
+  cursor: pointer;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+#retry-button { 
+  background-color: #d9534f; 
+}
+
+#message { 
+  min-height: 24px; 
+  font-weight: bold; 
+  margin: 15px 0; 
+}
+
+/* ショップ */
+.shop { 
+  margin-top: 20px; 
+  border-top: 2px solid #ccc; 
+  padding-top: 15px; 
+}
+
+.upgrade { 
+  border: 1px solid #ddd; 
+  padding: 10px; 
+  margin-bottom: 10px; 
+  border-radius: 6px; 
+}
+
+.upgrade p { 
+  margin: 0 0 8px 0; 
+  font-size: 13px; 
+}
+
+.upgrade button { 
+  padding: 6px 12px; 
+  cursor: pointer; 
+  background-color: #0275d8; 
+  color: white; 
+  border: none; 
+  border-radius: 4px; 
+}
+
+/* 右カラム：取得一覧リスト */
+#upgrades-history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+}
+
+#upgrades-history-list li {
+  padding: 6px 8px;
+  border-bottom: 1px solid #eee;
+  background-color: #fafafa;
+  margin-bottom: 4px;
+  border-radius: 4px;
+}
+
+/* セーブ機能 */
+.save-system { 
+  margin-top: 20px; 
+  border-top: 2px solid #ccc; 
+  padding-top: 15px; 
+}
+
+.save-slots { 
+  display: flex; 
+  gap: 5px; 
+}
+
+.save-slot { 
+  flex: 1; 
+  border: 1px solid #ddd; 
+  padding: 6px; 
+  border-radius: 4px; 
+  font-size: 11px; 
+}
+
+.save-slot button { 
+  font-size: 10px; 
+  margin: 2px 1px; 
+  padding: 2px 4px; 
+  cursor: pointer; 
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: #ccc !important;
+}
+
+/* 右カラム：設定エリア */
+.settings-container {
+  margin-top: 20px;
+  border-top: 2px solid #ccc;
+  padding-top: 15px;
+}
+
+.settings-container h2 {
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.setting-item {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background-color: #fafafa;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* ステータス一括表示エリア */
+.status-summary-container h2 {
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.status-summary {
+  font-size: 12px;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 10px;
+  line-height: 1.6;
+}
+
+.status-summary p {
+  margin: 2px 0;
+}
+
+/* 折りたたみ（details/summary） */
+.upgrades-history-container {
+  margin-top: 15px;
+  border-top: 1px dashed #ccc;
+  padding-top: 10px;
+}
+
+.upgrades-history-container summary {
+  font-size: 13px;
+  cursor: pointer;
+  color: #333;
+  padding: 4px 0;
+  user-select: none;
+}
+
+.upgrades-history-container summary:hover {
+  color: #0275d8;
+}
+
+#upgrades-history-list {
+  margin-top: 8px;
+}
+
+
