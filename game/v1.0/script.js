@@ -29,7 +29,7 @@ let symbols = JSON.parse(JSON.stringify(INITIAL_SYMBOLS));
 
 // 目標コイン（難易度曲線）
 function getTargetCoins() {
-  return Math.floor(25 * stage * stage + 10 * stage);
+  return Math.floor(30 * stage * stage + 15 * stage);
 }
 
 // ==============================
@@ -54,9 +54,9 @@ const allUpgradesPool = [
   {
     id: "coin-mul",
     name: "コイン倍率UP",
-    description: "全体の獲得コイン倍率 +0.5倍",
+    description: "全体の獲得コイン倍率 +0.1倍",
     cost: 1,
-    action: () => { coinMultiplier += 0.5; }
+    action: () => { coinMultiplier += 0.1; }
   },
   {
     id: "spin-add",
