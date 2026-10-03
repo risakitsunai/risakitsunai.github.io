@@ -56,7 +56,6 @@ id: "coin-mul",
 name: "コイン倍率UP",
     description: "全体の獲得コイン倍率 +0.1倍",
 cost: 1,
-    action: () => { coinMultiplier += 0.5; }
     action: () => { coinMultiplier += 0.1; }
 },
 {
