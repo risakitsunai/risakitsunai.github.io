@@ -29,7 +29,7 @@ let symbols = JSON.parse(JSON.stringify(INITIAL_SYMBOLS));
 
 // 目標コイン（難易度曲線）
 function getTargetCoins() {
-  return Math.floor(30 * stage * stage + 15 * stage);
+  return Math.floor(30 * stage * stage + 10 * stage);
 }
 
 // ==============================
