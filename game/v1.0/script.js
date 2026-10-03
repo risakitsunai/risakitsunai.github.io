@@ -190,7 +190,7 @@ function renderShop() {
   container.appendChild(rerollDiv);
 }
 
-// 現在のステータス一括表示（RPG風）
+// 現在のステータス一括表示
 function renderStatusSummary() {
   const container = document.getElementById("status-summary-list");
   if (!container) return;
@@ -243,7 +243,7 @@ function renderUpgradeHistory() {
 }
 
 // ==============================
-// スロット回転処理（演出ON/OFF対応）
+// スロット回転処理（演出ON/OFF対応・ズレ修正版）
 // ==============================
 function spin() {
   if (isSpinning) return;
@@ -261,73 +261,64 @@ function spin() {
   const reel2 = document.getElementById("reel2");
   const reel3 = document.getElementById("reel3");
 
+  // 内部的な確定出目を最初に決定
   const res1 = getRandomSymbol();
   const res2 = getRandomSymbol();
   const res3 = getRandomSymbol();
 
+  // 演出のON/OFF状態を取得
   const animToggle = document.getElementById("animation-toggle");
   const isAnimationOn = animToggle ? animToggle.checked : true;
 
   if (isAnimationOn) {
+    // 【演出ON】
     document.getElementById("message").textContent = "スロット回転中...";
     reel1.classList.add("spinning");
     reel2.classList.add("spinning");
     reel3.classList.add("spinning");
 
+    // 絵柄をシャッフル表示するタイマー
     const interval = setInterval(() => {
       reel1.textContent = getRandomSymbol().symbol;
       reel2.textContent = getRandomSymbol().symbol;
       reel3.textContent = getRandomSymbol().symbol;
     }, 50);
 
+    // リール1停止
     setTimeout(() => {
       reel1.classList.remove("spinning");
       reel1.textContent = res1.symbol;
     }, 500);
 
+    // リール2停止
     setTimeout(() => {
       reel2.classList.remove("spinning");
       reel2.textContent = res2.symbol;
     }, 900);
 
+    // リール3停止＆判定
     setTimeout(() => {
+      // 判定前にシャッフルタイマーを確実に停止させる
       clearInterval(interval);
+
       reel3.classList.remove("spinning");
+
+      // 画面上の表示を確定データで完全に上書き（ズレ防止）
+      reel1.textContent = res1.symbol;
+      reel2.textContent = res2.symbol;
       reel3.textContent = res3.symbol;
 
       evaluateResult(res1, res2, res3);
     }, 1300);
 
   } else {
+    // 【演出OFF】即時結果表示
     reel1.textContent = res1.symbol;
     reel2.textContent = res2.symbol;
     reel3.textContent = res3.symbol;
 
     evaluateResult(res1, res2, res3);
   }
-}
-
-function evaluateResult(r1, r2, r3) {
-  let reward = 0;
-  if (r1.symbol === r2.symbol && r2.symbol === r3.symbol) {
-    reward = r1.reward;
-  }
-
-  reward = Math.floor(reward * coinMultiplier);
-  coins += reward;
-
-  if (reward > 0) {
-    document.getElementById("message").textContent = `${reward} コイン獲得！`;
-  } else {
-    document.getElementById("message").textContent = "ハズレ！";
-  }
-
-  isSpinning = false;
-  document.getElementById("spin-button").disabled = false;
-  
-  updateDisplay();
-  checkStageClear();
-  checkGameOver();
 }
 
 // ==============================
