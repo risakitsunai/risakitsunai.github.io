@@ -50,8 +50,8 @@ input[type="button"]::focus {
    ========================================== */
 body {
   background-size: auto auto;
-  background-color: #f9f9f9;
-  background-image: repeating-linear-gradient(135deg, transparent, transparent 4px, #eaeaea 4px, #eaeaea 5px);
+  background-color: #4e4e4e;
+  background-image: repeating-linear-gradient(135deg, transparent, transparent 4px, #8f8f8f 4px, #8f8f8f 5px);
   /* 以上の3行が背景のストライプです。
      background-colorがベース色、background-imageが縞の色を制御しています。
      ストライプの色や太さを変えたい場合は、
@@ -78,7 +78,7 @@ dl dt {
 
 a {
   text-decoration: none;
-  color: #ce9eff;
+  color: #7f7fff;
   /* リンクの色 */
 }
 
@@ -140,7 +140,7 @@ h2:after {
   /* ここから見出しの下線のストライプ */
   background-size: auto auto;
   background-color: white;
-  background-image: repeating-linear-gradient(135deg, transparent, transparent 2px, #ce9eff 2px, #e2e2e2 3px);
+  background-image: repeating-linear-gradient(135deg, transparent, transparent 2px, #7f7fff 2px, #e2e2e2 3px);
   /* ここまで見出しの下線のストライプ */
 }
 
@@ -175,7 +175,7 @@ h3:before {
   /* ここから見出しの下線のストライプ */
   background-size: auto auto;
   background-color: white;
-  background-image: repeating-linear-gradient(135deg, transparent, transparent 2px, #ce9eff 2px, #e2e2e2 3px);
+  background-image: repeating-linear-gradient(135deg, transparent, transparent 2px, #7f7fff 2px, #e2e2e2 3px);
   /* ここまで見出しの下線のストライプ */
 }
 
@@ -570,7 +570,7 @@ footer .template {
 
 footer a.home {
   text-decoration: none;
-  color: #ce9eff;
+  color: #7f7fff;
   display: block;
   padding: 10px 20px;
   font-size: 14px;
@@ -844,7 +844,7 @@ a.btn.blue:hover {
 }
 
 .box02 {
-  border: 1px solid #ce9eff;
+  border: 1px solid #7f7fff;
   padding: 10px;
   border-radius: 4px;
   margin: 1em 0;
@@ -941,7 +941,7 @@ ul li:before {
   width: 12px;
   height: 3px;
   display: block;
-  background: #ce9eff;
+  background: #7f7fff;
   position: absolute;
   margin: auto;
   top: .6em;
